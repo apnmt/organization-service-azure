@@ -3,6 +3,7 @@ package de.apnmt.organization.config;
 import java.sql.SQLException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
@@ -14,8 +15,8 @@ import tech.jhipster.config.JHipsterConstants;
 import tech.jhipster.config.h2.H2ConfigurationHelper;
 
 @Configuration
-@EnableJpaRepositories({ "de.apnmt.organization.repository" })
-@EnableJpaAuditing(auditorAwareRef = "springSecurityAuditorAware")
+@EnableJpaRepositories("de.apnmt.organization.common.repository")
+@EntityScan("de.apnmt.organization.common.domain")
 @EnableTransactionManagement
 public class DatabaseConfiguration {
 
